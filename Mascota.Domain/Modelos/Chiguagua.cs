@@ -2,7 +2,7 @@
 
 namespace Mascota.Domain.Modelos
 {
-    public class Chiguagua : IPaseadorServicio
+    public class Chiguagua : IEstrategiaPaseo
     {
         public void PasearMascota()
         {

@@ -2,7 +2,7 @@
 
 namespace Mascota.Domain.Interfaces
 {
-    interface IPaseadorServicio
+    public interface IEstrategiaPaseo
     {
         void PasearMascota();
     }

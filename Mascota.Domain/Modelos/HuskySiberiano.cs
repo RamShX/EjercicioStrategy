@@ -2,7 +2,7 @@
 
 namespace Mascota.Domain.Modelos
 {
-    public class HuskySiberiano : IPaseadorServicio
+    public class HuskySiberiano : IEstrategiaPaseo
     {
         public void PasearMascota()
         {
