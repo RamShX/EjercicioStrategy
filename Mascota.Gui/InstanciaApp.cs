@@ -1,4 +1,6 @@
 ﻿using Mascota.Domain.Contexto;
+using Mascota.Domain.Factory;
+using Mascota.Domain.Interfaces;
 using Mascota.Domain.Modelos;
 
 namespace Mascota.Gui
@@ -20,32 +22,31 @@ namespace Mascota.Gui
                 Console.WriteLine("[3] Husky siberiano");
                 Console.WriteLine("[4] Salir");
                 Console.WriteLine("Elija una opción para saber más detalle");
-                int opcion = Convert.ToInt32(Console.ReadLine());
+                
 
-                PaseadorMascota pM = null;
-                switch (opcion)
+                if(!int.TryParse(Console.ReadLine(), out int option ) || option < 1 || option > 4) 
                 {
-                    case 1:
-                        Chiguagua chiguagua = new Chiguagua();
-                        pM = new PaseadorMascota(chiguagua);
-                        break;
-                    case 2:
-                        Ladrador ladrador = new Ladrador();
-                        pM = new PaseadorMascota(ladrador);
-                        break;
-                    case 3:
-                        HuskySiberiano huskySiberiano = new HuskySiberiano();
-                        pM = new PaseadorMascota(huskySiberiano);
-                        break;
-                    case 4:
-                        exit = false;
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida");
-                        break;
+                    Console.WriteLine("Opción no válida");
+                    Console.WriteLine("Presione para seguir...");
+                    Console.ReadKey();
+                    continue;
                 }
 
-                pM.PasearMascota();
+                if (option == 4)
+                {
+                    exit = false;
+                    continue;
+                }
+
+                IEstrategiaPaseo estrategia = FactoryMascota.CrearMascota(option);
+
+                if (estrategia != null) 
+                {
+                    PaseadorMascota pM = new PaseadorMascota(estrategia);
+                    pM.PasearMascota();
+                }
+               
+
                 Console.WriteLine("Presione para seguir...");
                 Console.ReadKey();
 
