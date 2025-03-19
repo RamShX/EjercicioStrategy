@@ -1,6 +1,6 @@
 ﻿namespace Mascota.Domain
 {
-    public class Class1
+    public class Chiguagua
     {
 
     }
