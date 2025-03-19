@@ -6,7 +6,7 @@ namespace Mascota.Domain.Modelos
     {
         public void PasearMascota()
         {
-            Console.WriteLine("20 MINUTOS. COSTO: RD$100");
+            Console.WriteLine("CHIHUAHUA: 20 MINUTOS. COSTO: RD$100");
         }
     }
 }
